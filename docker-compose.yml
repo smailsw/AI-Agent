@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  agent-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE: agent-service
+    ports:
+      - "5001:5000"
+    volumes:
+      - ./agent-service:/app/agent-service
+
+  chatbot-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE: chatbot-service
+    ports:
+      - "5002:5000"
+    volumes:
+      - ./chatbot-service:/app/chatbot-service
+
+  nlp-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        SERVICE: nlp-service
+    ports:
+      - "5003:5000"
+    volumes:
+      - ./nlp-service:/app/nlp-service
